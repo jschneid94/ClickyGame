@@ -3,7 +3,9 @@ import "./CharacterCard.css";
 
 const CharacterCard = props => (
     <div className="card">
-        Test
+        <div className="img-container">
+            <img alt={props.name} src={props.image} />
+        </div>
     </div>
 );
 
