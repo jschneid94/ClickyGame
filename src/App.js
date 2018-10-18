@@ -8,12 +8,16 @@ import './App.css';
 class App extends Component {
   state = {
     characters,
-    clickedCount: 0,
-
+    clickedCount: 0
   }
 
   handleIncrement = () => {
     this.setState({ clickedCount: this.state.clickedCount + 1});
+  }
+
+  resetCount = () => {
+    this.setState({ clickedCount: 0, })
+  }
 
   removeCharacter = id => {
     const characters = this.state.characters.filter(character => character.id !== id);
