@@ -7,8 +7,19 @@ import './App.css';
 
 class App extends Component {
   state = {
-    characters
+    characters,
+    clickedCount: 0,
+
   }
+
+  handleIncrement = () => {
+    this.setState({ clickedCount: this.state.clickedCount + 1});
+
+  removeCharacter = id => {
+    const characters = this.state.characters.filter(character => character.id !== id);
+    // Set this.state.friends equal to the new friends array
+    this.setState({ characters });
+  };
 
   render() {
     return (
@@ -16,8 +27,10 @@ class App extends Component {
         <Title>Clicky Game</Title>
         {this.state.characters.map(character => (
           <CharacterCard 
-            name={character.name}
-            image={character.image}
+            id = {character.id}
+            name = {character.name}
+            image = {character.image}
+            removeCharacter = {this.removeCharacter}
           />
         ))}
       </Wrapper>
