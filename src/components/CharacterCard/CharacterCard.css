@@ -1,9 +1,9 @@
 .card {
-    /* padding: 10px; */
     margin-bottom: 0px;
+    width: 200px;
 }
 
-/* .img-fluid {
-    margin-top: auto;
-    margin-bottom: auto;
-} */
+.img-container {
+   margin-top: auto;
+   margin-bottom: auto;
+}

@@ -16,13 +16,15 @@ class App extends Component {
 
   handleIncrement = () => {
     this.setState({ score: this.state.score + 1});
+    // this.checkWin();
   }
 
   resetCount = () => {
     this.setState({ 
       score: 0, 
       clickedCharacterList: [] 
-    })
+    });
+    shuffleArray(this.state.characters);
   }
 
   clickCharacter = id => {
@@ -31,15 +33,22 @@ class App extends Component {
     } else {
       this.handleIncrement();
       this.state.clickedCharacterList.push(id);
-      // shuffleArray(this.state.characters);
+      shuffleArray(this.state.characters);
     }
     this.checkWin();
   };
 
+  handleClick = id => {
+    this.clickCharacter(id, () => {
+      this.checkWin();
+    });
+  }
+
   checkWin = () => {
-    if (this.state.score === 12) {
+    if (this.state.score > 11) {
       this.setState({ wins: this.state.wins + 1});
       this.resetCount();
+      alert("You've chosen all characters! Let's start a new round...")
     }
   };
 
@@ -53,7 +62,8 @@ class App extends Component {
             id = {character.id}
             name = {character.name}
             image = {character.image}
-            clickCharacter = {this.clickCharacter}
+            handleClick = {this.handleClick}
+            // checkWin = {this.checkWin}
           />
         ))}
       </Wrapper>
