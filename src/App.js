@@ -3,6 +3,7 @@ import CharacterCard from './components/CharacterCard';
 import Title from './components/Title';
 import Wrapper from './components/Wrapper';
 import characters from './characters.json';
+import shuffleArray from 'shuffle-array';
 import './App.css';
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
     } else {
       this.handleIncrement();
       this.state.clickedCharacterList.push(id);
+      // shuffleArray(this.state.characters);
     }
     this.checkWin();
   };
