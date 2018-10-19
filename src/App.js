@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import CharacterCard from './components/CharacterCard';
 import Title from './components/Title';
+import Scores from './components/Scores';
+import Jumbotron from './components/Jumbotron';
 import Wrapper from './components/Wrapper';
+import Container from './components/Container';
 import characters from './characters.json';
 import shuffleArray from 'shuffle-array';
 import './App.css';
@@ -16,7 +19,6 @@ class App extends Component {
 
   handleIncrement = () => {
     this.setState({ score: this.state.score + 1});
-    // this.checkWin();
   }
 
   resetCount = () => {
@@ -54,19 +56,23 @@ class App extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <Title score = {this.state.score} wins={this.state.wins}>Clicky Game</Title>
-        {this.state.clickedCharacterList}
-        {this.state.characters.map(character => (
-          <CharacterCard 
-            id = {character.id}
-            name = {character.name}
-            image = {character.image}
-            handleClick = {this.handleClick}
-            // checkWin = {this.checkWin}
-          />
-        ))}
-      </Wrapper>
+      <Container>
+        <Jumbotron>
+          <Title>Clicky Game</Title>
+          <Scores score = {this.state.score} wins = {this.state.wins} /> 
+        </Jumbotron>
+        <Wrapper>
+          {this.state.clickedCharacterList}
+          {this.state.characters.map(character => (
+            <CharacterCard 
+              id = {character.id}
+              name = {character.name}
+              image = {character.image}
+              handleClick = {this.handleClick}
+            />
+          ))}
+        </Wrapper>
+      </Container>
     );
   }
 }
