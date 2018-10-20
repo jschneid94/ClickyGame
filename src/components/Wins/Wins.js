@@ -2,8 +2,8 @@ import React from 'react';
 import './Wins.css';
 
 const Wins = props => (
-    <div className="col-2 my-auto">
-        <h2>Wins: {props.wins}</h2>
+    <div className="row">
+        <h2 className="mx-auto">Wins: {props.wins}</h2>
     </div>
 )
 

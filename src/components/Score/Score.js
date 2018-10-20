@@ -2,8 +2,8 @@ import React from 'react';
 import './Score.css';
 
 const Score = props => (
-    <div className="col-2 my-auto">
-        <h2>Score: {props.score}</h2>
+    <div className="row">
+        <h2 className="mx-auto">Score: {props.score}</h2>
     </div>
 );
 

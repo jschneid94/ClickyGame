@@ -61,8 +61,10 @@ class App extends Component {
         <Jumbotron>
           <div className="row">
             <Title />
-            <Score score = {this.state.score}  />
-            <Wins wins = {this.state.wins} />
+            <div className="col-4 my-auto">
+              <Score score = {this.state.score}  />
+              <Wins wins = {this.state.wins} />
+            </div>
           </div>
         </Jumbotron>
         <Wrapper>
