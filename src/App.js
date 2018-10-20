@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import CharacterCard from './components/CharacterCard';
 import Title from './components/Title';
-import Scores from './components/Scores';
+import Score from './components/Score';
+import Wins from './components/Wins';
 import Jumbotron from './components/Jumbotron';
 import Wrapper from './components/Wrapper';
 import Container from './components/Container';
@@ -58,8 +59,11 @@ class App extends Component {
     return (
       <Container>
         <Jumbotron>
-          <Title>Clicky Game</Title>
-          <Scores score = {this.state.score} wins = {this.state.wins} /> 
+          <div className="row">
+            <Title />
+            <Score score = {this.state.score}  />
+            <Wins wins = {this.state.wins} />
+          </div>
         </Jumbotron>
         <Wrapper>
           {this.state.clickedCharacterList}
